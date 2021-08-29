@@ -16,8 +16,8 @@
 void xor_arm64_neon_2(unsigned long bytes, unsigned long *p1,
 	unsigned long *p2)
 {
-	uint64_t *dp1 = (uint64_t *)p1;
-	uint64_t *dp2 = (uint64_t *)p2;
+	/*uint64_t*/ unsigned long *dp1 = /*(uint64_t *)*/p1;
+	/*uint64_t*/ unsigned long *dp2 = /*(uint64_t *)*/p2;
 
 	register uint64x2_t v0, v1, v2, v3;
 	long lines = bytes / (sizeof(uint64x2_t) * 4);
@@ -43,9 +43,13 @@ void xor_arm64_neon_2(unsigned long bytes, unsigned long *p1,
 void xor_arm64_neon_3(unsigned long bytes, unsigned long *p1,
 	unsigned long *p2, unsigned long *p3)
 {
-	uint64_t *dp1 = (uint64_t *)p1;
+/*	uint64_t *dp1 = (uint64_t *)p1;
 	uint64_t *dp2 = (uint64_t *)p2;
 	uint64_t *dp3 = (uint64_t *)p3;
+*/
+	typeof(p1) dp1 = p1;
+	typeof(p2) dp2 = p2;
+	typeof(p3) dp3 = p3;
 
 	register uint64x2_t v0, v1, v2, v3;
 	long lines = bytes / (sizeof(uint64x2_t) * 4);
@@ -78,10 +82,15 @@ void xor_arm64_neon_3(unsigned long bytes, unsigned long *p1,
 void xor_arm64_neon_4(unsigned long bytes, unsigned long *p1,
 	unsigned long *p2, unsigned long *p3, unsigned long *p4)
 {
-	uint64_t *dp1 = (uint64_t *)p1;
-	uint64_t *dp2 = (uint64_t *)p2;
-	uint64_t *dp3 = (uint64_t *)p3;
-	uint64_t *dp4 = (uint64_t *)p4;
+//	uint64_t *dp1 = (uint64_t *)p1;
+//	uint64_t *dp2 = (uint64_t *)p2;
+//	uint64_t *dp3 = (uint64_t *)p3;
+//	uint64_t *dp4 = (uint64_t *)p4;
+
+	unsigned long *dp1 = p1;
+	unsigned long *dp2 = p2;
+	unsigned long *dp3 = p3;
+	unsigned long *dp4 = p4;
 
 	register uint64x2_t v0, v1, v2, v3;
 	long lines = bytes / (sizeof(uint64x2_t) * 4);
@@ -122,11 +131,11 @@ void xor_arm64_neon_5(unsigned long bytes, unsigned long *p1,
 	unsigned long *p2, unsigned long *p3,
 	unsigned long *p4, unsigned long *p5)
 {
-	uint64_t *dp1 = (uint64_t *)p1;
-	uint64_t *dp2 = (uint64_t *)p2;
-	uint64_t *dp3 = (uint64_t *)p3;
-	uint64_t *dp4 = (uint64_t *)p4;
-	uint64_t *dp5 = (uint64_t *)p5;
+	unsigned long *dp1 = p1;
+	unsigned long *dp2 = p2;
+	unsigned long *dp3 = p3;
+	unsigned long *dp4 = p4;
+	unsigned long *dp5 = p5;
 
 	register uint64x2_t v0, v1, v2, v3;
 	long lines = bytes / (sizeof(uint64x2_t) * 4);
